@@ -8,7 +8,7 @@ const FeaturedJob = () => {
     /* const handleLength = () =>{
         setLength(jobs.length);
     } */
-    console.log(jobs)
+    // console.log(jobs)
 
     useEffect(() =>{
         fetch('jobs.json')

@@ -1,10 +1,11 @@
 import React from 'react';
 import { IoLocationOutline } from "react-icons/io5";
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 const Job = ({ job }) => {
-    const { logo, company_name, job_title, remote_or_onsite, job_type, location, salary } = job;
-    console.log(job)
+    const { logo, company_name, job_title, remote_or_onsite, job_type, location, salary, id } = job;
+    // console.log(job)
     return (
         <div className='border p-8 space-y-3 rounded'>
             <img className='w-20' src={logo} alt="" />
@@ -24,8 +25,9 @@ const Job = ({ job }) => {
                     <p>{salary}</p>
                 </div>
             </div>
-            <button className='flex bg-gray-200 p-2 rounded hover:bg-gray-300'>View Details</button>
-
+            <Link to={`/job/${id}`}>
+                <button className='flex bg-gray-200 p-2 rounded hover:bg-gray-300'>View Details</button>
+            </Link>
 
         </div>
     );
