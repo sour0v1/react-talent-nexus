@@ -1,6 +1,11 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { saveApplication } from "../../utility/localStorage";
 
 const JobDetails = () => {
+    const notify = () => toast("Applied Successfully");
     const jobs = useLoaderData();
     const params = useParams();
     const { jobId } = params;
@@ -45,8 +50,9 @@ const JobDetails = () => {
                         <p><span className="font-bold">Address : </span>{contact_information.address}</p>
                     </div>
                 </div>
-                <button className=' bg-gray-200 p-2 rounded hover:bg-gray-300 w-full my-4'>Apply Now</button>
+                <button onClick={() => {notify(); saveApplication(intJobId)}} className=' bg-gray-200 p-2 rounded hover:bg-gray-300 w-full my-4'>Apply Now</button>
             </div>
+            <ToastContainer />
         </div>
     );
 };
